@@ -1,0 +1,16 @@
+{
+    "pokemons": [
+        {
+            "name": "Feurigel",
+            "count": 191,
+            "id": 0,
+            "freezed": true
+        },
+        {
+            "name": "Evoli",
+            "count": 1005,
+            "id": 1,
+            "freezed": false
+        }
+    ]
+}

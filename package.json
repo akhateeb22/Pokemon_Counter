@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "api": "node server.js",
+    "dev": "npm-run-all --parallel api serve",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "body-parser": "^1.20.0",
     "core-js": "^3.8.3",
+    "cors": "^2.8.5",
     "vue": "^3.2.13"
   },
   "devDependencies": {
@@ -18,7 +21,8 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "npm-run-all": "^4.1.5"
   },
   "eslintConfig": {
     "root": true,
@@ -32,7 +36,9 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {
+      "vue/multi-word-component-names": 0
+    }
   },
   "browserslist": [
     "> 1%",
