@@ -51,7 +51,7 @@ export default {
   methods: {
     async init() {
       await this.setPokemons()
-      this.setFullCounter()
+      await this.setFullCounter(false)
     },
 
     async setPokemons() {
@@ -84,18 +84,15 @@ export default {
       await this.savePokemons(JSON.parse(JSON.stringify(pkmns)))
     },
 
-    setFullCounter() {
+    async setFullCounter(save = true) {
       this.totalResets = 0;
       this.pokemons.forEach((pokemon) => {
         this.totalResets += pokemon['count']
       })
-    },
-
-    async counter(pokemon, method, counter = false) {
-      !this[method](pokemon, parseInt(counter))
-      const p = this.assignPokemon(pokemon)
       
-      await this.savePokemons(p)
+      if (save) {
+        await this.savePokemons(JSON.parse(JSON.stringify(this.pokemons)))
+      }
     },
 
     assignPokemon(pokemon, add = false) {
